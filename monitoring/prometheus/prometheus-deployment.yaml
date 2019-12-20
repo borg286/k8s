@@ -10,6 +10,9 @@ spec:
       labels:
         app: prometheus-server
     spec:
+      selector:
+        matchLabels:
+          app: prometheus-server
       serviceAccountName: monitoring
       containers:
         - name: prometheus
