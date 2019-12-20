@@ -6,6 +6,9 @@ metadata:
 spec:
   replicas: 1
   serviceName: grafana
+  selector:
+    matchLabels:
+      k8s-app: grafana    
   template:
     metadata:
       labels:
