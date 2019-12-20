@@ -25,7 +25,7 @@ spec:
     requests:
       storage: 5Gi
 ---
-apiVersion: extensions/v1beta1
+apiVersion: apps
 kind: Deployment
 metadata:
   labels:
