@@ -27,8 +27,6 @@ spec:
           readOnly: true
         - mountPath: /var
           name: grafana-storage
-        - mountPath: /var
-          name: grafana-storage
         - mountPath: /provisioning/datasources
           name: datasources
         - mountPath: /provisioning/dashboards
