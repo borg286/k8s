@@ -27,6 +27,12 @@ spec:
           readOnly: true
         - mountPath: /var
           name: grafana-storage
+        - mountPath: /var
+          name: grafana-storage
+        - mountPath: /provisioning/datasources
+          name: datasources
+        - mountPath: /provisioning/dashboards
+          name: dashboards
         env:
         - name: GF_SERVER_HTTP_PORT
           value: "3000"
@@ -48,6 +54,13 @@ spec:
       - name: ca-certificates
         hostPath:
           path: /etc/ssl/certs
+      - name: datasources
+        configMap:
+            name: grafana-datasources
+      # You must provide your own config map that creates dashboard yaml and corresponding json files
+      - name: dashboards
+        configMap:
+            name: grafana-dashboards
   volumeClaimTemplates:
   - metadata:
       name: grafana-storage
@@ -56,4 +69,4 @@ spec:
       accessModes: [ "ReadWriteOnce" ]
       resources:
         requests:
-          storage: 5Gi
+          storage: 1Gi
